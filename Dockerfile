@@ -10,8 +10,11 @@ RUN dnf -y --enablerepo=updates-testing install \
     mesa-dri-drivers \
     vlgothic-fonts \
     && dnf clean all
-RUN groupadd -g 1000 chromium \
-    && useradd -u 1000 -n -g chromium -G audio,video chromium \
+
+ARG chromium_uid=1000
+ARG chromium_gid=1000
+RUN groupadd -g $chromium_gid chromium \
+    && useradd -u $chromium_uid -n -g chromium -G audio,video chromium \
     && mkdir -p /home/chromium/Downloads /home/chromium/.config/chromium \
     && chown -R chromium:chromium /home/chromium
 USER chromium
