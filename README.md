@@ -17,7 +17,7 @@ that if you're rebuilding the container for a Chromium package update
 the `--no-cache` option to make sure the layer with the same install
 command from an older version of the container doesn't get reused.
 
-The seccomp profile in [`chrome.json`](./chrome.json) is by Jessie
-Frazelle, likewise under MIT license. See
+The seccomp profile in [`chrome.json`](./chrome.json) is derived from
+the one by Jessie Frazelle, likewise under MIT license. See
 https://github.com/jessfraz/dotfiles/blob/master/etc/docker/seccomp/chrome.json
 for the original.
